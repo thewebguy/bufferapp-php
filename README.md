@@ -20,20 +20,24 @@ There wasn't one listed on buffer's website and a quick Google search didn't com
 # Example
 
 First thing's first: start a session and require `buffer.php`. We're going to be storing the `access_token` in the session for now.
+
 		session_start();
 		require('buffer.php');
 
 Set this thing up with your credentials and your callback URL. Remember: `callback_url` must match what you've got in buffer exactly!
+
 		$client_id = '';
 		$client_secret = '';
 		$callback_url = 'http://127.0.0.1/callback';
 
 Set up the new buffer client. This is a super simple action that does a few things under the hood.
-If `$_GET['code']` is set on this page it assumes it came from buffer and will attempt to trade that code for an `access_token`.
-If there is an `access_token` in the session it will be loaded in.
+If `$_GET['code']` is set on this page it assumes it came from buffer and will attempt to trade that code for an `access_token`. If there is an `access_token` in the session it will be loaded in.
+
 		$buffer = new BufferApp($client_id, $client_secret, $callback_url);
 
 Once we've got an `access_token` set the `$buffer->ok` property will read true. It is false by default. 
+Now that we've received access we are free to run queries against buffer endpoints! Below we pull the list of profiles associated with the logged in buffer user and submit a test update to each one.
+
 		if (!$buffer->ok) {
 			echo '<a href="' . $buffer->get_login_url() . '">Connect to Buffer!</a>';
 		} else {
