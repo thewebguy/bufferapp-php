@@ -169,9 +169,6 @@
 			curl_setopt_array($ch, $options);
 			$rs = curl_exec($ch);
 			
-			print "\n\n$url\n\n";
-			var_dump($data);print "\n\n";
-			
 			$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			if ($code >= 400) {
 				return $this->error($code);
