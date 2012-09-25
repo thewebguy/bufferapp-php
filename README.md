@@ -5,7 +5,7 @@ Simple PHP library for the amazing buffer at http://bufferapp.com
 
 # Why?
 
-There wasn't one listed on buffer's website and a quick Google search didn't come up.
+There wasn't one listed on buffer's website and a quick Google search didn't come up. For most use cases buffer's plugins will work just fine, but for those of you looking to pump lots of info into buffer via PHP this may help!
 
 # Using this library
 
