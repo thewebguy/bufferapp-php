@@ -57,3 +57,7 @@ Now that we've received access we are free to run queries against buffer endpoin
 Right now this baby just stores the `access_token` in `$_SESSION['oauth']['buffer']['access_token']`. If you are doing something serious with this you should probably rewrite the `store_access_token()` and `retrieve_access_token()` methods.
 
 I'm going to be using this in a real world project startin this week, so hopefully I'll have some major updates for it. Any help is appreciated!
+
+# License
+
+Do whatever you like with this. Feel free (but not obligated) to [drop me a line](http://kevinkhandjian.com) if it helps!
