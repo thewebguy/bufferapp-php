@@ -11,7 +11,7 @@ For most use cases Buffer's plugins will work just fine, but for those of you lo
 # Using this library
 
 1. Include the file
-	- Make sure you've got `buffer.php` included
+	- Make sure you've got: "require": "buffer/app": "dev-master" included in your composer.json file
 2. Create a new Buffer app
 	- You'll need to [register an app](http://bufferapp.com/developers/api) with buffer before you can begin
 	- Initialize like this `$buffer = new BufferApp($client_id, $client_secret, $callback_url);` The `callback_url` needs to be the exact same as the app you registered
@@ -30,10 +30,10 @@ To get the desired result you will need to use `media[picture]` _and_ `media[thu
 
 # Example
 
-First thing's first: start a session and require `buffer.php`. We're going to be storing the `access_token` in the session for now.
+First thing's first: start a session.
+We're going to be storing the `access_token` in the session for now.
 
 		session_start();
-		require('buffer.php');
 
 Set this thing up with your credentials and your callback URL. Remember: `callback_url` must match what you've got in Buffer exactly!
 
@@ -44,6 +44,8 @@ Set this thing up with your credentials and your callback URL. Remember: `callba
 Set up the new buffer client. This is a super simple action that does a few things under the hood.
 If `$_GET['code']` is set on this page it assumes it came from Buffer and will attempt to trade that code for an `access_token`. If there is an `access_token` in the session it will be loaded in.
 
+
+		use Buffer\App\BufferApp;
 		$buffer = new BufferApp($client_id, $client_secret, $callback_url);
 
 Once we've got an `access_token` set the `$buffer->ok` property will read true. It is false by default.
@@ -70,5 +72,7 @@ Right now this baby just stores the `access_token` in `$_SESSION['oauth']['buffe
 Realistically these methods should be replaced with some sort of abstraction -- pull requests are welcome!
 
 # License
+Apache-2.0
+Do whatever you like with this.
+Feel free (but not obligated) to [drop me a line](http://preilly.me) or the original author [drop kevin a line](http://kevin.fm) if it helps!
 
-Do whatever you like with this. Feel free (but not obligated) to [drop me a line](http://kevin.fm) if it helps!
