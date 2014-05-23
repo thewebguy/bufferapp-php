@@ -1,7 +1,7 @@
-bufferapp
+BufferApp
 =============
 
-Simple PHP library for the amazing buffer at http://bufferapp.com
+Simple PHP composer package for the amazing buffer at http://bufferapp.com
 
 # Why?
 
