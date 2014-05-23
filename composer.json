@@ -1,0 +1,8 @@
+{
+    "name": "buffer/app",
+    "autoload": {
+        "psr-0" : {
+            "Buffer\\App" : "src"
+        }
+    }
+}
