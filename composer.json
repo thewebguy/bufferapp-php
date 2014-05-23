@@ -5,5 +5,5 @@
         "psr-0" : {
             "Buffer\\App" : "src"
         }
-    },
+    }
 }
