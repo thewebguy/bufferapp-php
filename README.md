@@ -1,11 +1,12 @@
-bufferapp-php
+bufferapp
 =============
 
 Simple PHP library for the amazing buffer at http://bufferapp.com
 
 # Why?
 
-There wasn't one listed on Buffer's website and a quick Google search didn't turn one up. For most use cases Buffer's plugins will work just fine, but for those of you looking to pump lots of info into buffer via PHP this may help!
+There wasn't one listed on Buffer's website and a quick Google search didn't turn one up.
+For most use cases Buffer's plugins will work just fine, but for those of you looking to pump lots of info into buffer via PHP this may help!
 
 # Using this library
 
@@ -16,7 +17,7 @@ There wasn't one listed on Buffer's website and a quick Google search didn't tur
 	- Initialize like this `$buffer = new BufferApp($client_id, $client_secret, $callback_url);` The `callback_url` needs to be the exact same as the app you registered
 3. Start adding buffers!
 	- Once you're in you really only need to check `$buffer->ok` to see if you can perform actions, and then `$buffer->go($endpoint, $data)` to get going!
-	
+
 ##### Image Attachments
 
 The Buffer API seems to be missing documentation for the `media` parameter for creating an update.
@@ -26,7 +27,7 @@ Their [example here](http://bufferapp.com/developers/api/updates#updatescreate) 
 To get the desired result you will need to use `media[picture]` _and_ `media[thumbnail]`.
 
 
-		
+
 # Example
 
 First thing's first: start a session and require `buffer.php`. We're going to be storing the `access_token` in the session for now.
@@ -45,7 +46,7 @@ If `$_GET['code']` is set on this page it assumes it came from Buffer and will a
 
 		$buffer = new BufferApp($client_id, $client_secret, $callback_url);
 
-Once we've got an `access_token` set the `$buffer->ok` property will read true. It is false by default. 
+Once we've got an `access_token` set the `$buffer->ok` property will read true. It is false by default.
 Now that we've received access we are free to run queries against Buffer endpoints! Below we pull the list of profiles associated with the logged in buffer user and submit a test update to each one.
 
 		if (!$buffer->ok) {
@@ -53,7 +54,7 @@ Now that we've received access we are free to run queries against Buffer endpoin
 		} else {
 			//this pulls all of the logged in user's profiles
 			$profiles = $buffer->go('/profiles');
-			
+
 			if (is_array($profiles)) {
 				foreach ($profiles as $profile) {
 					//this creates a status on each one
