@@ -60,7 +60,7 @@ Now that we've received access we are free to run queries against Buffer endpoin
 			if (is_array($profiles)) {
 				foreach ($profiles as $profile) {
 					//this creates a status on each one
-					$buffer->go('/updates/create', array('text' => 'My first status update from bufferapp-php worked!', 'profile_ids[]' => $profile->id));
+					$buffer->go('/updates/create', array('text' => 'My first status update from BufferApp worked!', 'profile_ids[]' => $profile->id));
 				}
 			}
 		}
