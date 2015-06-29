@@ -67,8 +67,6 @@ Now that we've received access we are free to run queries against Buffer endpoin
 	$buffer->go('/updates/create', 
 		array(
 			'text' => 'My first status update with a link worked!', 
-			'media[picture]'=>  $url_image,
-			'media[thumbnail]'=>  $url_thumbnail,
 			'media[link]'=>  $link,
 			'media[description]'=>  'your description',
 			'profile_ids[]' => $profile->id,
