@@ -1,7 +1,7 @@
 bufferapp-php
 =============
 
-Simple PHP library for the amazing buffer at http://bufferapp.com
+Simple PHP library for the amazing buffer at https://buffer.com
 
 # Why?
 
@@ -19,7 +19,7 @@ There wasn't one listed on Buffer's website and a quick Google search didn't tur
 	
 ##### Image Attachments
 
-The Buffer API seems to be missing documentation for the `media` parameter for creating an update.
+The Buffer API documentation has a list of the `media` parameters for creating an update.
 
 Their [example here](http://bufferapp.com/developers/api/updates#updatescreate) includes `media[link]`, `media[title]` & `media[description]`.
 
