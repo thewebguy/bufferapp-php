@@ -48,6 +48,7 @@ If `$_GET['code']` is set on this page it assumes it came from Buffer and will a
 Once we've got an `access_token` set the `$buffer->ok` property will read true. It is false by default. 
 Now that we've received access we are free to run queries against Buffer endpoints! Below we pull the list of profiles associated with the logged in buffer user and submit a test update to each one.
 
+##Post an update with a simple text
 		if (!$buffer->ok) {
 			echo '<a href="' . $buffer->get_login_url() . '">Connect to Buffer!</a>';
 		} else {
@@ -61,6 +62,26 @@ Now that we've received access we are free to run queries against Buffer endpoin
 				}
 			}
 		}
+
+##Post an update with a link
+	$buffer->go('/updates/create', 
+		array(
+			'text' => 'My first status update with a link worked!', 
+			'media[link]'=>  $link,
+			'media[description]'=>  'your description',
+			'profile_ids[]' => $profile->id,
+		));
+
+##Post an update with an image
+	$buffer->go('/updates/create', 
+		array(
+			'text' => 'My first status update with an image worked!', 
+			'media[picture]'=>  $url_image,
+			'media[thumbnail]'=>  $url_thumbnail,
+			'profile_ids[]' => $profile->id,
+		));
+
+Please also note that you'll need the media[picture] and media[thumbnail] to make it work
 
 # Storage
 
